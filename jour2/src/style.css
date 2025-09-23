@@ -1,0 +1,53 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    overflow: hidden;
+    background: #000;
+}
+
+#app {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+
+#canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+#nav {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 100;
+}
+
+#nav button {
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+#nav button:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+#nav button.active {
+    background: rgba(255, 255, 255, 0.3);
+    border-color: white;
+}
