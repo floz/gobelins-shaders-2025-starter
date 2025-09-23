@@ -50,7 +50,10 @@ export function initSuzanneExercise() {
                 shader.uniforms[key] = uniforms[key];
             });
 
-            // STEP 2: VERTEX SHADER - Add declarations before main()
+            // ======================================
+            // VERTEX SHADER
+            // ======================================
+            // Add declarations before main()
             shader.vertexShader = shader.vertexShader.replace(
                 'void main() {',
                 `
@@ -93,7 +96,10 @@ export function initSuzanneExercise() {
                 `
             );
 
-            // STEP 4: FRAGMENT SHADER - Add declarations before main()
+             // ======================================
+            // FRAGMENT SHADER
+            // ======================================
+            // Add declarations before main()
             shader.fragmentShader = shader.fragmentShader.replace(
                 'void main() {',
                 `

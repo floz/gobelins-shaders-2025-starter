@@ -38,7 +38,7 @@ export function initSphereExercise() {
         });
 
         // ======================================
-        // VERTEX SHADER - Only 2 replacements!
+        // VERTEX SHADER
         // ======================================
 
         // 1. Add declarations before main()
@@ -135,7 +135,7 @@ export function initSphereExercise() {
         );
 
         // ======================================
-        // FRAGMENT SHADER - Only 2 replacements!
+        // FRAGMENT SHADER
         // ======================================
 
         // 3. Add declarations before main()
