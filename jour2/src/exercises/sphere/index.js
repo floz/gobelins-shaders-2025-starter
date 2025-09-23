@@ -162,8 +162,6 @@ export function initSphereExercise() {
             // TODO: Mix colors based on noise and apply on diffuseColor.rgb
             `
         );
-
-        console.log('✅ Simplified sphere shader complete! Only 4 replacements used.');
     };
 
     const sphere = new THREE.Mesh(sphereGeometry, material);

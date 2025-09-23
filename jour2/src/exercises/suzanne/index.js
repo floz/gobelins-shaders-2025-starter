@@ -129,8 +129,6 @@ export function initSuzanneExercise() {
                 // TODO: Create smooth transition between colorA and colorB using uThreshold
                 `
             );
-
-            console.log('✅ Fixed simplified shader customization complete!');
         };
 
         suzanne = new THREE.Mesh(geometry, customMaterial);
