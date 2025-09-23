@@ -10,6 +10,7 @@ export const exercises = [
     description: 'La ou tout commence',
     fragSource: helloworldFrag,
     uniforms: {
+      u_texture: { type: 'texture', value: textureUrl, gui: false },
       u_color: { type: 'color', value: [0, 0, 0], gui: true, label: 'Couleur' },
     }
   },
