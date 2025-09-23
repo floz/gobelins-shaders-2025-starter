@@ -1,0 +1,315 @@
+:root {
+  --sidebar-width: 360px;
+  --bg-primary: #0a0a0b;
+  --bg-secondary: #141416;
+  --bg-tertiary: #1a1a1d;
+  --text-primary: #e8e8e9;
+  --text-secondary: #a8a8b0;
+  --text-tertiary: #68687a;
+  --accent: #5e5eff;
+  --accent-hover: #7a7aff;
+  --border: #2a2a2d;
+  --radius: 8px;
+  --radius-sm: 4px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  overflow: hidden;
+}
+
+#app {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+
+/* Canvas */
+#canvas {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: calc(100vw - var(--sidebar-width));
+  height: 100vh;
+  display: block;
+}
+
+/* Sidebar */
+#sidebar {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: var(--sidebar-width);
+  height: 100vh;
+  background: var(--bg-secondary);
+  border-left: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  z-index: 10;
+}
+
+/* Header */
+header {
+  padding: 24px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-primary);
+}
+
+header h1 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 4px;
+  background: linear-gradient(135deg, #fff 0%, var(--accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+header p {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+/* Selector Section */
+.selector-section {
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--border);
+}
+
+.selector-section label {
+  display: block;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-tertiary);
+  margin-bottom: 8px;
+}
+
+#exercise-selector {
+  width: 100%;
+  padding: 10px 12px;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  font-size: 14px;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+#exercise-selector:hover {
+  background: var(--bg-primary);
+  border-color: var(--accent);
+}
+
+#exercise-selector:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(94, 94, 255, 0.2);
+}
+
+/* Info Section */
+.info-section {
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--border);
+  min-height: 60px;
+}
+
+#exercise-info {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  font-family: 'JetBrains Mono', monospace;
+  background: var(--bg-tertiary);
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  border-left: 3px solid var(--accent);
+}
+
+/* GUI Container */
+#gui {
+  flex: 1;
+  padding: 20px 24px;
+  overflow-y: auto;
+}
+
+/* lil-gui overrides */
+.lil-gui {
+  --background-color: var(--bg-tertiary) !important;
+  --title-background-color: var(--bg-primary) !important;
+  --title-text-color: var(--text-primary) !important;
+  --widget-color: var(--bg-primary) !important;
+  --hover-color: var(--accent) !important;
+  --focus-color: var(--accent) !important;
+  --text-color: var(--text-secondary) !important;
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  --font-size: 13px !important;
+  --input-font-size: 13px !important;
+  --padding: 12px !important;
+  --spacing: 10px !important;
+  --widget-padding: 8px !important;
+  --widget-border-radius: 4px !important;
+  font-family: var(--font-family) !important;
+  width: 100% !important;
+}
+
+/* Fix folder spacing */
+.lil-gui .children {
+  padding: 8px 0 !important;
+}
+
+.lil-gui .gui-stats {
+  display: none !important;
+}
+
+.lil-gui .title {
+  padding: 12px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.3px;
+  line-height: 1.4 !important;
+  display: flex !important;
+  align-items: center !important;
+  min-height: 36px !important;
+}
+
+.lil-gui .controller {
+  margin: 8px 0 !important;
+  padding: 4px 0 !important;
+}
+
+.lil-gui .controller .name {
+  font-size: 12px !important;
+  color: var(--text-secondary) !important;
+}
+
+.lil-gui button {
+  background: var(--accent) !important;
+  color: white !important;
+  border: none !important;
+  border-radius: var(--radius-sm) !important;
+  padding: 10px 16px !important;
+  font-weight: 500 !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  min-height: 32px !important;
+  font-size: 13px !important;
+  line-height: 1.2 !important;
+  width: 100% !important;
+  text-align: center !important;
+}
+
+/* Specific fix for controller buttons */
+.lil-gui .controller.function button {
+  display: block !important;
+  margin: 4px 0 !important;
+}
+
+.lil-gui button:hover {
+  background: var(--accent-hover) !important;
+  box-shadow: 0 4px 12px rgba(94, 94, 255, 0.3);
+}
+
+.lil-gui .controller.number input,
+.lil-gui .controller.string input {
+  background: var(--bg-primary) !important;
+  border: 1px solid var(--border) !important;
+  color: var(--text-primary) !important;
+}
+
+.lil-gui .controller.color .display {
+  border: 1px solid var(--border) !important;
+  border-radius: var(--radius-sm) !important;
+}
+
+/* Footer */
+footer {
+  padding: 20px 24px;
+  border-top: 1px solid var(--border);
+  background: var(--bg-primary);
+  margin-top: auto;
+}
+
+footer p {
+  font-size: 12px;
+  color: var(--text-tertiary);
+  margin-bottom: 8px;
+}
+
+footer p:last-child {
+  margin-bottom: 0;
+}
+
+.shortcuts {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+
+.shortcuts kbd {
+  display: inline-block;
+  padding: 4px 8px;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--text-secondary);
+}
+
+/* Scrollbar */
+#sidebar::-webkit-scrollbar,
+#gui::-webkit-scrollbar {
+  width: 8px;
+}
+
+#sidebar::-webkit-scrollbar-track,
+#gui::-webkit-scrollbar-track {
+  background: var(--bg-tertiary);
+}
+
+#sidebar::-webkit-scrollbar-thumb,
+#gui::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 4px;
+}
+
+#sidebar::-webkit-scrollbar-thumb:hover,
+#gui::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  :root {
+    --sidebar-width: 100%;
+  }
+
+  #app {
+    flex-direction: column;
+  }
+
+  #canvas {
+    width: 100vw;
+    height: 50vh;
+  }
+
+  #sidebar {
+    width: 100%;
+    height: 50vh;
+    border-left: none;
+    border-top: 1px solid var(--border);
+  }
+}
